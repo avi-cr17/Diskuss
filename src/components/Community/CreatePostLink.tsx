@@ -6,13 +6,25 @@ import { BsLink45Deg } from "react-icons/bs";
 import { FaReddit } from "react-icons/fa";
 import { IoImageOutline } from "react-icons/io5";
 import useDirectory from "../../hooks/useDirectory";
+import { auth} from '../../firebase/clientApp';
+import { useAuthState } from "react-firebase-hooks/auth";
+import { useSetRecoilState } from "recoil";
+import { authModalState } from "../../atoms/authModalAtom";
 
 type CreatePostProps = {};
 
 const CreatePostLink: React.FC<CreatePostProps> = () => {
+  const [user] = useAuthState(auth);
   const router = useRouter();
+  const setAuthModalState = useSetRecoilState(authModalState)
   const { toggleMenuOpen } = useDirectory();
   const onClick = () => {
+
+    if (!user) {
+      setAuthModalState({ open: true, view: "login" });
+      return;
+    }
+
     // Could check for user to open auth modal before redirecting to submit
     const { community } = router.query;
     if (community) {

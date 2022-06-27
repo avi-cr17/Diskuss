@@ -28,6 +28,7 @@ const InputItem: React.FC<InputItemProps> = ({
       placeholder={placeholder}
       value={value}
       required
+      color="black"
       onChange={onChange}
       mb={mb}
       fontSize="10pt"

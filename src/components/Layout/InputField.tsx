@@ -23,6 +23,7 @@ const InputField: React.FC<InputFieldProps> = ({
         name={name}
         placeholder={placeholder}
         type={type}
+        
         mb={mb}
         fontSize="10pt"
         _placeholder={{ color: "gray.500" }}
