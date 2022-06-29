@@ -46,7 +46,7 @@ const handleChnage = ({
         </InputLeftElement>
         <Input
         color="blackAlpha.700"
-          placeholder="Search Reddit"
+          placeholder="Search Diskuss"
           fontSize="10pt"
           _placeholder={{ color: "gray.500" }}
           _hover={{
